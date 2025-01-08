@@ -1,0 +1,31 @@
+.cartButton {
+    font-family: "Nunito", sans-serif;
+    background-color: orangered;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s background-color;
+
+    &:hover {
+        animation: ease-in;
+        background-color: rgba(255, 55, 0, 0.744);
+    }
+}
+
+.buyButton {
+    font-family: "Nunito", sans-serif;
+    background-color: orange;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s background-color;
+
+    &:hover {
+        animation: ease-in;
+        background-color: rgba(255, 166, 0, 0.735);
+    }
+}

@@ -1,0 +1,17 @@
+# server files
+server/node_modules
+server/.env
+server/*.env
+server/.prettierignore
+server/log.txt
+
+# client files
+client/node_modules
+client/.next/
+client/out/
+client/.pnp
+client/.pnp.*
+client/npm-debug.log*
+client/.pnpm-debug.log*
+client/.vercel
+client/.env*

@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productImageContainer {
+    text-align: center;
+}
+.productImage {
+    width: 60%;
+    height: 60%;
+    border-radius: 10px;
+}
+
+.productDetails {
+    width: 50%;
+}
+.productTitle {
+    margin-bottom: 10px;
+    & :first-child {
+        font-family: "Nunito", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    & :nth-child(2) {
+        font-family: "Nunito", sans-serif;
+        font-weight: 500;
+        color: hsla(0, 0%, 0%, 0.571);
+    }
+}
+
+.productMeta {
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 10px;
+
+    & :first-child {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    & :nth-child(2) {
+        color: rgba(0, 128, 0, 0.71);
+    }
+}
+
+.purchaseButtons {
+    margin-top: 20px;
+    max-width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

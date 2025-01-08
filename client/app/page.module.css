@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.productsLink {
+    font-family: "Poppins",sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
