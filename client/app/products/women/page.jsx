@@ -14,7 +14,7 @@ export default function ProductsWomen() {
     // Step 2: Fetch data when the component mounts
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/products?search=women');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products?search=women`);
         const data = await response.json();
         setProducts(data);  // setting the fetched data to the state variable
         
@@ -37,8 +37,8 @@ export default function ProductsWomen() {
     <>
       <div className={styles.container}>
         {products.map((product) => (
-          <li key={product.id} className={styles.listItems}>
-            <Link href={`/products/${product.id}`} className={styles.productLink}>
+          <li key={product._id} className={styles.listItems}>
+            <Link href={`/products/${product._id}`} className={styles.productLink}>
             <ProductCard product={product} />
           </Link>
           </li>

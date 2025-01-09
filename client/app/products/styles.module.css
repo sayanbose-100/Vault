@@ -10,8 +10,16 @@
 .productLink {
     text-decoration: none;
     color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .listItems {
     list-style: none;
+}
+
+.productCard {
+    height: 100%;
+    width: 100%;
 }

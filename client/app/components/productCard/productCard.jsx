@@ -2,7 +2,6 @@
 import React from "react";
 import styles from "./productCard.module.css";
 import Image from "next/image";
-// import productImage from "../../../public/images/img.jpg"
 
 const ProductCard = ({product}) => {
   const { image, name, price, category:{gender, type} } = product;

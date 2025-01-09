@@ -7,7 +7,6 @@ import AddToCartButton from "../buttons/addCart";
 import { useState, useRef, useEffect } from "react";
 
 const ProductDetailsPage = ({ productid }) => {
-  // const { name, price, category:{gender, type} } = product;
 
   // Fetch product details using the id
   const [product, setProduct] = useState({});
@@ -18,7 +17,7 @@ const ProductDetailsPage = ({ productid }) => {
     setLoading(true);
     (async () => {
       const response = await fetch(
-        `http://localhost:8000/api/products/${productid}`
+        `${process.env.NEXT_PUBLIC_URL}/api/products/${productid}`
       );
       console.log(response);
       if (!response.ok) {
@@ -31,8 +30,6 @@ const ProductDetailsPage = ({ productid }) => {
       setLoading(false);
     })();
   }, [productid]);
-  console.log(product.image);
-  const productImgLink = product.image;
   return (
     <>
       <div className={styles.container}>
@@ -44,6 +41,8 @@ const ProductDetailsPage = ({ productid }) => {
               alt="Product Image"
               width={680}
               height={540}
+              priority
+              quality={100}
             />
           )}
         </div>

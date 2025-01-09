@@ -63,3 +63,7 @@ The .env file will contain the following:
 ```bash
 npm start
 ```
+
+## The project is deployed on the following links:
+#### 1. Client - https://vault-8lwua59nl-sayanbose-100s-projects.vercel.app/
+#### 2. Server - https://vaultserver-ysni.onrender.com

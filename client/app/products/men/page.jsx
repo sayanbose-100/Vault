@@ -14,7 +14,7 @@ export default function ProductsWomen() {
     // Step 2: Fetch data when the component mounts
     const fetchProducts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/products?search=men');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products?search=men`);
         const data = await response.json();
         setProducts(data);  // setting the fetched data to the state variable
         

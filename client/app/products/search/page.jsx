@@ -1,15 +1,14 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import ProductCard from "../../components/productCard/productCard.jsx";
 import Link from "next/link";
 import styles from "./styles.module.css";
 
-const SearchResultPage = () => {
+const SearchResults = () => {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
-  console.log(query);
   const [products, setProducts] = useState([]);
   const productsRef = useRef([]);
 
@@ -17,7 +16,7 @@ const SearchResultPage = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/products?search=${query}`
+          `${process.env.NEXT_PUBLIC_URL}/api/products?search=${query}`
         );
         const data = await response.json();
         setProducts(data); // setting the fetched data to the state variable
@@ -59,4 +58,13 @@ const SearchResultPage = () => {
   );
 };
 
+
+// Main page component with Suspense
+const SearchResultPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResults />
+    </Suspense>
+  );
+};
 export default SearchResultPage;

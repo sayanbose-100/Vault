@@ -13,7 +13,8 @@ export default function Products() {
     // Step 2: Fetch data when the component mounts
     const fetchProducts = async () => {
       try {
-        const response = await fetch("http://localhost:8000/api/products");
+        console.log("URL: ",process.env.NEXT_PUBLIC_URL);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/products`);
         const data = await response.json();
         setProducts(data); // setting the fetched data to the state variable
 
@@ -40,6 +41,7 @@ export default function Products() {
             <Link
               href={`/products/${product._id}`}
               className={styles.productLink}
+              style={{ display: 'block' }}
             >
               <ProductCard product={product} />
             </Link>

@@ -5,7 +5,7 @@ import router from './routes/index.js';
 import logFile from './middlewares/logFile.js';
 import {connectDb,seedProducts} from './database/db.js';
 import 'dotenv/config';
-import { products } from './utils/constants.js';
+import Product from './models/product.models.js';
 
 const app = express();
 app.use(cors(
@@ -24,8 +24,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logFile);
 
 // Homepage route
-app.get("/", (request, response) => {
-    response.status(200).send(products);
+app.get("/", async (request, response) => {
+    try {
+        const products = await Product.find({});
+        return response.status(200).send(products);
+    } catch (error) {
+        response.status(500).json({ message: error.message });
+    }
 });
 
 // routes middleware

@@ -11,14 +11,20 @@ router.get("/api/products", async (request, response) => {
         } = request;
 
         if (search) {
-            // const wordRegex = new RegExp(`\\b${search}\\b`, 'i');
             const wordRegex = new RegExp(search, 'i');
+
+            if (search.toLowerCase() === 'men' || search.toLowerCase() === 'women') {
+                // If it's a gender search, only search by exact gender match
+                const filteredProducts = await Product.find({
+                    'category.gender': search.toLowerCase()
+                });
+                return response.status(200).json(filteredProducts);
+            }
             
             const filteredProducts = await Product.find({
                 $or: [
-                    { name: { $regex: wordRegex } },
+                    { 'name': { $regex: wordRegex } },
                     { 'category.type': { $regex: wordRegex } },
-                    { 'category.gender': { $regex: wordRegex } }
                 ]
             });
             return response.status(200).json(filteredProducts);
